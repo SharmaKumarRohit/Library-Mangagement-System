@@ -30,7 +30,7 @@ GET: Get a book by its ID <br />
 PUT: Update a book by its ID <br />
 DELETE: Delete a book by its ID
 
-## /books/issued
+## /books/issued/for-users
 
 GET: Get all the issued books
 
@@ -54,6 +54,6 @@ GET: Get all issued books with their fine amount
     npm i express
     npm i nodemon --save-dev
 
-    npm run dev
+    npm run dev -> To start the application
 
 To restore node_modules and package-lock.json --> npm i / npm install
