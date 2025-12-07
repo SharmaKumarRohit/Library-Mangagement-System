@@ -1,4 +1,5 @@
 const express = require("express");
+// Initializing router
 const router = express.Router();
 const { books } = require("../data/books.json");
 const { users } = require("../data/users.json");
@@ -136,25 +137,30 @@ router.delete("/:id", (req, res) => {
  */
 
 router.get("/issued/for-users", (req, res) => {
+  // Finding all the users who have issued books
   const userWithIssuedBooks = users.filter((user) => user?.issuedBook);
 
   const issuedBooksDetails = [];
   userWithIssuedBooks.forEach((user) => {
+    // Finding the book details for the issued book
     const book = books.find((book) => book.id === user.issuedBook);
 
+    // Adding issued details to the book object
     book.issuedBy = user.name;
     book.issuedDate = user.issuedDate;
-    book.returnData = user.returnDate;
+    book.returnDate = user.returnDate;
 
     issuedBooksDetails.push(book);
   });
 
+  // If no books are issued, send 404
   if (issuedBooksDetails.length === 0) {
     return res
       .status(404)
       .json({ success: false, message: "No book issued yet" });
   }
 
+  // Sending the issued books details
   res.status(200).json({ success: true, data: issuedBooksDetails });
 });
 

@@ -1,5 +1,6 @@
 const express = require("express");
 const { users } = require("../data/users.json");
+// Initializing router
 const router = express.Router();
 
 /*
@@ -160,6 +161,7 @@ router.get("/subscription-details/:id", (req, res) => {
 
   // Find user by ID
   const user = users.find((user) => user.id === id);
+  // If user not found, send 404
   if (!user) {
     return res
       .status(404)
@@ -174,10 +176,12 @@ router.get("/subscription-details/:id", (req, res) => {
     } else {
       date = new Date();
     }
+    // Convert date to days
     let days = Math.floor(date / (1000 * 60 * 60 * 24));
     return days;
   };
 
+  // Function to calculate subscription type in days
   const subscriptionType = (date) => {
     if (user.subscriptionType === "Basic") {
       date += 90;
@@ -195,6 +199,7 @@ router.get("/subscription-details/:id", (req, res) => {
   let subscriptionDate = getDateInDays(user.subscriptionDate);
   let subscriptionExpiration = subscriptionType(subscriptionDate);
 
+  // Preparing data with subscription details
   const data = {
     ...user,
     subscriptionExpired: subscriptionExpiration < currentDate,
@@ -209,6 +214,7 @@ router.get("/subscription-details/:id", (req, res) => {
         : 0,
   };
 
+  // Sending the subscription details
   res.status(200).json({ success: true, data });
 });
 
