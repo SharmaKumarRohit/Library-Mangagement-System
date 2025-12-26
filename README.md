@@ -56,6 +56,8 @@ A **RESTful Library Management System API** built using **Node.js, Express, and 
   - Validity
   - Fine
 
+---
+
 #### Books
 
 `/books`
@@ -113,7 +115,7 @@ npm install
 
 ---
 
-## Database connection
+### Database connection
 
 You can use **MongoDB Atlas** or **Local MongoDB**. Add these variables in your `.env` file:
 
@@ -122,8 +124,6 @@ PORT=8081
 MONGO_URL=mongodb+srv://<db_user>:<db_password>@cluster0.wgvhanf.mongodb.net/LMS
 MONGO_URL_LOCAL=mongodb://127.0.0.1:27017/
 ```
-
----
 
 ## MVC Architecture
 
