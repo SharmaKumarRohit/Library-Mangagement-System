@@ -75,7 +75,7 @@ A **RESTful Library Management System API** built using **Node.js, Express, and 
 
 - **GET** – Get all issued books
 
----
+<hr />
 
 ### Subscription Plans
 
@@ -91,7 +91,7 @@ A **RESTful Library Management System API** built using **Node.js, Express, and 
 - Missed subscription → ₹100 fine
 - Missed both → ₹200 fine
 
----
+<hr />
 
 ### Usage & Installation
 
@@ -113,7 +113,7 @@ npm run dev
 npm install
 ```
 
----
+<hr />
 
 ### Database connection
 
@@ -125,7 +125,7 @@ MONGO_URL=mongodb+srv://<db_user>:<db_password>@cluster0.wgvhanf.mongodb.net/LMS
 MONGO_URL_LOCAL=mongodb://127.0.0.1:27017/
 ```
 
----
+<hr />
 
 ### MVC Architecture
 
@@ -133,7 +133,7 @@ MONGO_URL_LOCAL=mongodb://127.0.0.1:27017/
 - **View (V)** – Frontend
 - **Controller (C)** – Handles request and responses
 
----
+<hr />
 
 ### DTO (Data Transfer Object)
 
@@ -143,7 +143,7 @@ DTOs are used to transfer structured data between layers, ensuring:
 - Security
 - Clean API responses
 
----
+<hr />
 
 #### License
 
