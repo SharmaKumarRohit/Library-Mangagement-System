@@ -2,39 +2,39 @@
 
     This is a library management API Backend for the management of users and the books
 
-# Routes and the Endpoints
+## Routes and the Endpoints
 
-## /users
+### /users
 
 GET: Get all the list of users in the system <br />
 POST: Create / Register a new user
 
-## /users/{id}
+### /users/{id}
 
 GET: Get a user by their ID <br />
 PUT: Updating a user by their ID <br />
 DELETE: Delating a user by their ID (Check if the user still has an issued book) && {is there any fine / penalty to be collected}
 
-## /users/subscription-details/{id}
+### /users/subscription-details/{id}
 
 GET: Get a user subscription details >> Date of subscription >> Valid till ? >> Fine if any ?
 
-## /books
+### /books
 
 GET: Get all the books in the system <br />
 POST: Add a new book to the system
 
-## /books/{id}
+### /books/{id}
 
 GET: Get a book by its ID <br />
 PUT: Update a book by its ID <br />
 DELETE: Delete a book by its ID
 
-## /books/issued/for-users
+### /books/issued/for-users
 
 GET: Get all the issued books
 
-## /books/issued/withFine
+### /books/issued/withFine
 
 GET: Get all issued books with their fine amount
 
@@ -57,3 +57,18 @@ GET: Get all issued books with their fine amount
     npm run dev -> To start the application
 
 To restore node_modules and package-lock.json --> npm i / npm install
+
+npm i mongoose
+npm instal mongodb
+
+mongodb+srv://library-management-system:<db_password>@hotels.ngnetic.mongodb.net/
+
+npm i dotenv
+
+## MVC Architecture
+
+    >> M: Model (Structure of MongoDB)
+    >> V: View (Frontend)
+    >> C: Controllers (Brain/Logic of a route)
+
+## DTO (Date Transfer Object)
