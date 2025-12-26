@@ -1,74 +1,150 @@
-# Library-Mangagement-System
+# Library-Mangagement-System (Backend API)
 
-    This is a library management API Backend for the management of users and the books
+A **RESTful Library Management System API** built using **Node.js, Express, and MongoDB**. This backend application helps manage **users, books, subscriptions, book issuance, and fine calculations** in a structured way .
 
-## Routes and the Endpoints
+## Features
 
-### /users
+- User management
+- Book management
+- Book issuing
+- Subscription plans (Basic, Standard, Premium)
+- Automatic fine calculation for late renewals
+- MVC architecture for clean code organization
+- MongoDB Atlas database integration
 
-GET: Get all the list of users in the system <br />
-POST: Create / Register a new user
+## Tech Stack
 
-### /users/{id}
+- **Node.js** – Runtime environment
+- **Express.js** – Node.js Framework
+- **MongoDB** – NoSQL Database
+- **Mongoose** – MongoDB ODM (Object Data Modeling)
+- **dotenv** – Environment variable management
+- **nodemon** – Server auto-reload
 
-GET: Get a user by their ID <br />
-PUT: Updating a user by their ID <br />
-DELETE: Delating a user by their ID (Check if the user still has an issued book) && {is there any fine / penalty to be collected}
+## Project Structure (MVC)
 
-### /users/subscription-details/{id}
+    Library-Management-System
+    │
+    ├── controllers # Logic of server
+    ├── dtos # Only book dto
+    ├── models # MongoDB schemas
+    ├── routes # API routes
+    ├── .gitignore # Ignoring unnecessary files and folders
+    ├── db.js # Database connection
+    ├── package.json
+    └── server.js # main file
 
-GET: Get a user subscription details >> Date of subscription >> Valid till ? >> Fine if any ?
+### API Endpoints
 
-### /books
+#### Users
 
-GET: Get all the books in the system <br />
-POST: Add a new book to the system
+`/users`
 
-### /books/{id}
+- **GET** – Fetch all users
+- **POST** – Add a new user
 
-GET: Get a book by its ID <br />
-PUT: Update a book by its ID <br />
-DELETE: Delete a book by its ID
+`/users/{id}`
 
-### /books/issued/for-users
+- **GET** – Get user by ID
+- **PUT** – Update user details
+- **DELETE** - Delete user
 
-GET: Get all the issued books
+`/users/subscription-details/{id}`
 
-### /books/issued/withFine
+- **GET** – Fetch subscription details
+  - Subscription start date
+  - Validity
+  - Fine
 
-GET: Get all issued books with their fine amount
+---
 
-### Subscription Types
+#### Books
 
-    >> Basic (3 months)
-    >> Standard (6 months)
-    >> Premium (12 months)
+`/books`
 
-> > If a user missed the enewal date, then user should be collected with &#8377;100 <br />
-> > If a user misses his subscription, then user is expected to pay &#8377;100 <br />
-> > If a user misses both renewal & subscription, then the collected amount should be &#8377;200
+- **GET** – Fetch all books
+- **POST** – Add a new book
 
-## Commands:
+`/books/{id}`
 
-    npm init
-    npm i express
-    npm i nodemon --save-dev
+- **GET** – Get book by ID
+- **PUT** – Update book details
+- **DELETE** - Delete book
 
-    npm run dev -> To start the application
+`/books/issued/for-users`
 
-To restore node_modules and package-lock.json --> npm i / npm install
+- **GET** – Get all issued books
 
-npm i mongoose
-npm instal mongodb
+---
 
-mongodb+srv://library-management-system:<db_password>@hotels.ngnetic.mongodb.net/
+### Subscription Plans
 
-npm i dotenv
+| Plan     | Duration  |
+| -------- | --------- |
+| Basic    | 3 Months  |
+| Standard | 6 Months  |
+| Premium  | 12 Months |
 
-## MVC Architecture
+#### Fine Rules
 
-    >> M: Model (Structure of MongoDB)
-    >> V: View (Frontend)
-    >> C: Controllers (Brain/Logic of a route)
+- Missed renewal → ₹100 fine
+- Missed subscription → ₹100 fine
+- Missed both → ₹200 fine
 
-## DTO (Date Transfer Object)
+---
+
+### Usage & Installation
+
+```bash
+npm init
+npm install express mongoose dotenv
+npm install nodemon --save-dev
+```
+
+#### Run the Server
+
+```bash
+npm run dev
+```
+
+#### Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+### Database connection
+
+You can use **MongoDB Atlas** or **Local MongoDB**. Add these variables in your `.env` file:
+
+```bash
+PORT=8081
+MONGO_URL=mongodb+srv://<db_user>:<db_password>@cluster0.wgvhanf.mongodb.net/LMS
+MONGO_URL_LOCAL=mongodb://127.0.0.1:27017/
+```
+
+---
+
+### MVC Architecture
+
+- **Model (M)** – Define MongoDB schema and structure
+- **View (V)** – Frontend
+- **Controller (C)** – Handles request and responses
+
+---
+
+### DTO (Data Transfer Object)
+
+DTOs are used to transfer structured data between layers, ensuring:
+
+- Data consistency
+- Security
+- Clean API responses
+
+---
+
+#### License
+
+This project is open-source and available for learning and educational purposes.
