@@ -1,6 +1,6 @@
 # Library-Mangagement-System (Backend API)
 
-A **RESTful Library Management System API** built using **Node.js, Express, and MongoDB**. This backend application is designed to manage **users, books, subscriptions, book issuance, and fine calculations** in a structured way.
+A `RESTful Library Management System API` built using `Node.js, Express, and MongoDB`. This backend application is designed to manage `users, books, subscriptions, book issuance, and fine calculations` in a structured way.
 
 The project uses `MongoDB Atlas` as the cloud database for data storage, and the server is `hosted on Render`, making the API accessible online for frontend usage and deployment experience.
 
